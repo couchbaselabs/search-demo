@@ -1,0 +1,16 @@
+<h3>Choose a property</h3>
+
+<div class="form">
+    <label  ng-repeat="hit in results.hits" class="radio">
+        <input name="selected" ng-model="selected.hotel" ng-change="selectedHotelChanged()" ng-value="hit" type="radio">{{hit.fields.name}}
+    </label>
+</div>
+
+
+<div ng-if="selected.hotel">
+<h3>Points of Interest near {{selected.hotel.fields.name}}</h3>
+<ol>
+        <li ng-repeat="hit in nearbyResults.hits"><b>{{hit.fields.name}}</b> ({{hit.dist}} m)
+        </li>
+</ol>
+</div>
